@@ -1,3 +1,63 @@
 .App {
-  text-align: center;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.post {
+  width: 400px;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 7px 8px 0px;
+  transition: 0.2s;
+}
+
+.post:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.post .title {
+  flex: 20%;
+  border-bottom: 1px solid lightgray;
+  display: grid;
+  place-content: center;
+  background-color: dodgerblue;
+  color: white;
+  text-transform: capitalize;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.post .body {
+  flex: 60%;
+  display: grid;
+  place-content: center;
+  text-transform: capitalize;
+}
+
+.post .footer {
+  flex: 20%;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 15px ;
+  background-color:dodgerblue;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
