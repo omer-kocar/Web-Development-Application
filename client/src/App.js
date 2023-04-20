@@ -11,6 +11,8 @@ function App() {
         <div className="navbar">
           <Link to="createpost">Create A Post</Link>
           <Link to="/">Home page</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
