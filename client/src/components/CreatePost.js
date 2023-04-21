@@ -1,13 +1,12 @@
 import React from "react";
-import "./createPost.css"
+import "./createPost.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
-
-  const history = useNavigate(); 
+  const history = useNavigate();
 
   const initialValues = {
     title: "",
@@ -23,11 +22,9 @@ function CreatePost() {
 
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/posts", data).then((response) => {
-        history("/");
-    })
+      history("/");
+    });
   };
-
-  
 
   return (
     <div className="createPostPage">
@@ -38,13 +35,13 @@ function CreatePost() {
       >
         <Form className="formContainer">
           <label>Title: </label>
-          <ErrorMessage name="title" component="span"/>
+          <ErrorMessage name="title" component="span" />
           <Field id="inputCreatePost" name="title" placeholder="Ex. Title" />
-          <label>Post: </label> 
-          <ErrorMessage name="postText" component="span"/>
+          <label>Post: </label>
+          <ErrorMessage name="postText" component="span" />
           <Field id="inputCreatePost" name="postText" placeholder="Ex. Post" />
           <label>User Name: </label>
-          <ErrorMessage name="userName" component="span"/>
+          <ErrorMessage name="userName" component="span" />
           <Field
             id="inputCreatePost"
             name="userName"
