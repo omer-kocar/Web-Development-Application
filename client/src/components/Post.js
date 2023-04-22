@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./post.css";
 import "../App.css";
 
 function Post() {
@@ -20,14 +19,29 @@ function Post() {
   }, []);
 
   const addComments = () => {
-    axios.post("http://localhost:3001/comments", {
-      commentBody: newComment,
-      PostId: id,
-    }).then(()=> {
-      const commentToAdd = {commentBody : newComment}
-      setComments([...comments,commentToAdd ])
-      setNewComment("")
-    });
+    axios
+      .post(
+        "http://localhost:3001/comments",
+        {
+          commentBody: newComment,
+          PostId: id,
+        },
+        {
+          headers: {
+            accessToken: sessionStorage.getItem("accessToken"),
+          },
+        }
+      )
+      .then((response) => {
+        if(response.data.error){
+          alert(response.data.error)
+        } else {
+          const commentToAdd = { commentBody: newComment };
+        setComments([...comments, commentToAdd]);
+        setNewComment("");
+        }
+        
+      });
   };
 
   return (
@@ -44,7 +58,9 @@ function Post() {
             placeholder="Comment..."
             autoComplete="off"
             value={newComment}
-            onChange={(e)=> { setNewComment(e.target.value)}}
+            onChange={(e) => {
+              setNewComment(e.target.value);
+            }}
           />
           <button onClick={addComments}>Add comments</button>
         </div>

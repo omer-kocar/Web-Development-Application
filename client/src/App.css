@@ -65,32 +65,74 @@ body {
 .postPage {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
 }
 
 .leftSide {
-  flex: 50%;
-  height: calc(100vh - 70px);
+  width: 600px;
+  height: 300px;
+  border-radius: 10px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  margin-right: 10%;
+  border: 1px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 7px 8px 0px;
+  transition: 0.2s;
+}
+
+.leftSide:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 0.2s;
+}
+
+.leftSide .title {
+  flex: 20%;
+  border-bottom: 1px solid lightgray;
   display: grid;
-  place-items: center;
+  place-content: center;
+  background-color: dodgerblue;
+  color: white;
+  text-transform: capitalize;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.leftSide .body {
+  flex: 60%;
+  display: grid;
+  place-content: center;
+  text-transform: capitalize;
+}
+
+.leftSide .footer {
+  flex: 20%;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background-color: dodgerblue;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .rightSide {
-  flex: 50%;
-  height: calc(100vh - 70px);
-  display: grid;
-  place-items: center;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  margin-top: 10%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .rightSide .addCommentContainer {
-  flex: 20%;
-  width: 100%;
-  display: grid;
+  display:flex;
+  flex-direction: column;
   place-items: center;
-  margin-top: 25px;
 }
 
 .addCommentContainer input,
@@ -104,6 +146,7 @@ button {
 .addCommentContainer button {
   background-color: dodgerblue;
   color: white;
+  margin-top: 15px;
 }
 
 .addCommentContainer input {
@@ -111,24 +154,22 @@ button {
 }
 
 .rightSide .listOfComments {
-  flex: 80%;
-  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .listOfComments .comment {
-  width: 70%;
+  width: 90%;
   height: auto;
-  padding: 30px;
+  padding: 15px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #individual {
-  height: 500px;
+  height: 300px;
   width: 600px;
 }
 
@@ -139,4 +180,66 @@ button {
 
 #individual .body {
   font-size: 25px;
+}
+
+/* Login */
+
+.login-container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-container > label {
+  border-bottom: 1px solid lightgray;
+  display: grid;
+  background-color: dodgerblue;
+  color: white;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+.login-container > input {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border: 2px solid #dadada;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+.login-container > input:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+  transition: 0.2s;
+}
+
+.text {
+  display: block;
+}
+
+.login-container > button {
+  margin-top: 10px;
+  height: 40px;
+  border: none;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+  
+}
+
+.login-container > button:hover {
+  cursor: pointer;
+  background-color: rgb(18, 112, 206);
+  transition: 0.2s;
 }

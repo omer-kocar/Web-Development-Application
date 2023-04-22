@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+  // debugger
   const [listOfposts, setListOfPosts] = useState([]);
   const history = useNavigate();
 
