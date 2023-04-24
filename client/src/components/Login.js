@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../helpers/AuthContenxt";
 
 function Login() {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthState } = useContext(AuthContext);
+  
+  
   const history = useNavigate();
 
   const login = () => {
@@ -14,8 +18,9 @@ function Login() {
         alert(response.data.error);
       } else {
         console.log("welcome");
-        sessionStorage.setItem("accessToken", response.data);
-        history("/")
+        localStorage.setItem("accessToken", response.data);
+        setAuthState(true);
+        history("/");
       }
     });
   };

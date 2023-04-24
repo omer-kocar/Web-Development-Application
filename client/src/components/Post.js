@@ -28,19 +28,18 @@ function Post() {
         },
         {
           headers: {
-            accessToken: sessionStorage.getItem("accessToken"),
+            accessToken: localStorage.getItem("accessToken"),
           },
         }
       )
       .then((response) => {
-        if(response.data.error){
-          alert(response.data.error)
+        if (response.data.error) {
+          alert(response.data.error);
         } else {
-          const commentToAdd = { commentBody: newComment };
-        setComments([...comments, commentToAdd]);
-        setNewComment("");
+          const commentToAdd = { commentBody: newComment, username: response.data.username };
+          setComments([...comments, commentToAdd]);
+          setNewComment("");
         }
-        
       });
   };
 
@@ -69,6 +68,7 @@ function Post() {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
+                <label> Username: {comment.username}</label>
               </div>
             );
           })}
